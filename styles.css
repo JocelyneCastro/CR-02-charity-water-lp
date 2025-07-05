@@ -1,7 +1,21 @@
+/* Thank you message style */
+.thank-you-message {
+  margin-top: 18px;
+  color: #fff; /* White text for contrast */
+  font-size: 1.3em;
+  font-family: 'Proxima Nova', Arial, sans-serif;
+  background: #FFC907; /* Same yellow as Donate Now button */
+  padding: 14px 0;
+  border-radius: 8px;
+  text-align: center;
+  width: 220px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  position: relative;
+}
 /* Yellow donate box under the right message */
 .donate-box {
   background: #FFC907; /* Bright yellow */
-  color: #222; /* Dark text for contrast */
+  color: #fff; /* White text for contrast */
   font-family: 'Proxima Nova', Arial, sans-serif;
   font-size: 1.5em;
   font-weight: bold;

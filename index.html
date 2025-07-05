@@ -23,7 +23,68 @@
             lasting change you can see.
         </p>
         <!-- Yellow donate box below the text -->
-        <div class="donate-box">Donate Now</div>
+        <button class="donate-box" id="donateBtn">Donate Now</button>
+        <div id="thankYouMsg" class="thank-you-message" style="display:none;">Thank you for donating!</div>
+        <canvas id="confetti-canvas" style="position:absolute;pointer-events:none;top:0;left:0;width:100vw;height:100vh;z-index:999;display:none;"></canvas>
+        <script>
+        // Show thank you message and confetti for 3 seconds
+        document.getElementById('donateBtn').onclick = function() {
+          var msg = document.getElementById('thankYouMsg');
+          var confetti = document.getElementById('confetti-canvas');
+          msg.style.display = 'block';
+          confetti.style.display = 'block';
+          startConfetti();
+          setTimeout(function() {
+            msg.style.display = 'none';
+            confetti.style.display = 'none';
+          }, 3000);
+        };
+
+        // Simple confetti animation for beginners
+        function startConfetti() {
+          var canvas = document.getElementById('confetti-canvas');
+          var ctx = canvas.getContext('2d');
+          canvas.width = window.innerWidth;
+          canvas.height = window.innerHeight;
+          var pieces = [];
+          var colors = ['#FFC907', '#2E9DF7', '#4FCB53', '#FF902A', '#F5402C'];
+          for (var i = 0; i < 80; i++) {
+            pieces.push({
+              x: Math.random() * canvas.width,
+              y: Math.random() * -canvas.height,
+              w: 8 + Math.random() * 8,
+              h: 8 + Math.random() * 8,
+              color: colors[Math.floor(Math.random() * colors.length)],
+              speed: 2 + Math.random() * 3,
+              angle: Math.random() * Math.PI * 2
+            });
+          }
+          var frame = 0;
+          function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            // Draw each confetti piece
+            for (var i = 0; i < pieces.length; i++) {
+              var p = pieces[i];
+              ctx.save();
+              ctx.translate(p.x, p.y);
+              ctx.rotate(p.angle);
+              ctx.fillStyle = p.color;
+              ctx.fillRect(-p.w/2, -p.h/2, p.w, p.h);
+              ctx.restore();
+              p.y += p.speed;
+              p.angle += 0.02;
+              // If a piece goes below the screen, move it back to the top
+              if (p.y > canvas.height) p.y = -10;
+            }
+            frame++;
+            // Let the confetti fall for longer (e.g., 180 frames ~3 seconds)
+            if (frame < 180) {
+              requestAnimationFrame(draw);
+            }
+          }
+          draw();
+        }
+        </script>
     </div>
 </body>
 </html>

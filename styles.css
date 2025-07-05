@@ -1,3 +1,28 @@
+/* Simple navigation bar styles for beginners */
+.navbar {
+  position: absolute;
+  top: 0;
+  right: 40px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  background: none; /* No background, sits on top of the white bar */
+  z-index: 3;
+}
+
+.nav-link {
+  color: #2E9DF7; /* Charity Water blue */
+  font-family: 'Proxima Nova', Arial, sans-serif;
+  font-size: 1.1em;
+  text-decoration: none;
+  margin-left: 28px;
+  font-weight: bold;
+  transition: color 0.2s;
+}
+
+.nav-link:hover {
+  color: #159A48; /* Green on hover */
+}
 /* Thank you message style */
 .thank-you-message {
   margin-top: 18px;

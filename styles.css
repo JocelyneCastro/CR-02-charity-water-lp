@@ -1,3 +1,23 @@
+/* Yellow donate box under the right message */
+.donate-box {
+  background: #FFC907; /* Bright yellow */
+  color: #222; /* Dark text for contrast */
+  font-family: 'Proxima Nova', Arial, sans-serif;
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 10px;
+  margin-top: 32px;
+  padding: 18px 0;
+  width: 220px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.donate-box:hover {
+  background: #FFD84D; /* Slightly lighter yellow on hover */
+}
 .right-message .right-subtext {
   color: #fff;
   font-size: 1.2em;

@@ -1,3 +1,24 @@
+/* Style for the site name next to the logo */
+.site-name {
+  font-size: 2.5em; /* Even bigger font for the site name */
+  font-weight: bold;
+  color: #2E9DF7; /* Primary blue color */
+  vertical-align: middle;
+  margin-left: 10px; /* Space between logo and text */
+  letter-spacing: 1px;
+}
+/* Style for the logo in the top left corner */
+.logo-container {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 10;
+}
+
+.logo-img {
+  height: 72px; /* Even bigger height for the logo */
+  width: auto;
+}
 /* charity: water Brand Colors & Fonts
 
 Primary Colors:

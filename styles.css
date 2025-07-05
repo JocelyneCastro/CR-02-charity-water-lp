@@ -1,8 +1,8 @@
 /* Message on the right side of the page */
 .right-message {
   position: absolute;
-  top: 120px; /* Place below the top bar */
-  right: 40px;
+  top: 200px; /* Move lower on the page */
+  right: 120px; /* Move more to the left */
   background: none; /* Remove background box */
   padding: 0;
   border-radius: 0;
@@ -12,7 +12,7 @@
 
 .right-message h1 {
   color: #fff; /* White letters for the message */
-  font-size: 2em;
+  font-size: 3em; /* Make the message font bigger */
   font-family: 'Proxima Nova', Arial, sans-serif; /* Use Proxima Nova font */
   margin: 0;
 }

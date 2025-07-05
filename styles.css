@@ -1,13 +1,21 @@
+.right-message .right-subtext {
+  color: #fff;
+  font-size: 1.2em;
+  font-family: 'Proxima Nova', Arial, sans-serif;
+  margin-top: 18px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.18); /* Help text stand out */
+  text-align: left; /* Line up all lines to the left */
+}
 /* Message on the right side of the page */
 .right-message {
   position: absolute;
   top: 200px; /* Move lower on the page */
-  right: 120px; /* Move more to the left */
+  right: 40px; /* Move the text box further to the right */
   background: none; /* Remove background box */
   padding: 0;
   border-radius: 0;
   box-shadow: none;
-  text-align: center;
+  text-align: left; /* Left align the text inside the box, but keep it on the right side of the screen */
 }
 
 .right-message h1 {

@@ -1,3 +1,20 @@
+/* Message on the right side of the page */
+.right-message {
+  position: absolute;
+  top: 120px; /* Place below the top bar */
+  right: 40px;
+  background: none; /* Remove background box */
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
+  text-align: center;
+}
+
+.right-message h1 {
+  color: #fff; /* White letters for the message */
+  font-size: 2em;
+  margin: 0;
+}
 /* Simple white rectangle across the top as a border */
 .top-bar {
   width: 100%;

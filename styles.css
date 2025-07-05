@@ -1,3 +1,22 @@
+/* Simple white rectangle across the top as a border */
+.top-bar {
+  width: 100%;
+  height: 80px; /* Make the white bar a bit taller to fit the logo comfortably */
+  background: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1; /* Make sure it's behind the logo */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04); /* Soft shadow for depth */
+}
+
+/* Add space so logo doesn't overlap the top bar */
+.logo-container {
+  position: absolute;
+  top: 12px; /* Center the logo vertically in the white bar */
+  left: 20px;
+  z-index: 2; /* Make sure logo is above the bar */
+}
 /* Style for the site name next to the logo */
 .site-name {
   font-size: 2.5em; /* Even bigger font for the site name */
@@ -16,7 +35,7 @@
 }
 
 .logo-img {
-  height: 72px; /* Even bigger height for the logo */
+  height: 56px; /* Make the logo fit inside the white bar */
   width: auto;
 }
 /* charity: water Brand Colors & Fonts

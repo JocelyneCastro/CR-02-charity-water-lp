@@ -1,0 +1,4 @@
+Delete these images if not needed:
+cw_logo-2.png
+cw_logo.png
+water-can-transparent.png

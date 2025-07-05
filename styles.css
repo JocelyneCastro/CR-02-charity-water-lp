@@ -25,7 +25,12 @@ Fonts:
 
 /* Set up the main font and background color for the whole page */
 body {
-  background-color: #f4f8fb; /* Soft light blue for a fresh look */
+  /* Set the background image for the whole page */
+  background-image: url('https://cdn2.dropmarkusercontent.com/52043/01bafd20d58ff3f18fde0300fa9e7e1d7783bd436c3f6b2d0ff14ad6c957de9c/preview/Ambote-CharityWater-08586.jpg?Expires=1751698946&Signature=gszQsh025TyhDTbcMOOKMU7Imh72RaYm0SNdr4GqrPh7709OV7pDiy0-lo11pwu4e0M4YnUoCj1tDtYZH6oPDWmowsNXa7sgobCcvllPOtvUqEf2x3kj2~qdsu3-uU2~MY9uoIzc9m0tHBuVb3Bg56StkJpdygcx~v~nQrjTc6Fe8hlPXb-gS6LV-o1TXIUR389ZaLNi90dq9-gqX~D8pWLABf9xK8DKVHEw~ZWN4KUcDVMEsoYoZGYgPY0wvWR3XTWtQPIADZo4ASyzSg08CPJR5clZD8GY0sfT4jcb35o3NiMKwed660dfiAqBW682uFNFBM81ZKF3FAad5nXEUg__&Key-Pair-Id=APKAITQYWVEN757ZA4KQ');
+  background-size: cover; /* Make the image cover the whole page */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  min-height: 100vh; /* Make sure the background covers the whole screen */
   font-family: 'Avenir', 'Proxima Nova', Arial, sans-serif;
   margin: 0;
   padding: 0;
@@ -34,7 +39,8 @@ body {
 
 /* Add a slight shadow and rounded corners to each section for depth */
 section {
-  background: #fff; /* White background for sections */
+  /* Add a simple background color with transparency to help text stand out */
+  background: rgba(255, 255, 255, 0.8); /* White with some transparency */
   border-radius: 12px; /* Rounded corners */
   box-shadow: 0 2px 8px rgba(46, 157, 247, 0.07); /* Soft blue shadow */
   margin: 24px 10px; /* Space between sections */
@@ -45,19 +51,11 @@ section {
 .hero {
   position: relative; /* Needed for overlay */
   /* Set a background image that covers the whole section */
-  background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80');
-  background-size: cover;      /* Make the image cover the whole area */
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat;
-  color: #fff;                 /* White text for contrast */
+  /* Remove section-specific background image, use page background instead */
+  color: #222;                 /* Dark text for contrast on light overlay */
   text-align: center;          /* Center the text */
   padding: 60px 20px;          /* Add space above and below */
   border-radius: 0 0 16px 16px; /* Only round bottom corners */
-
-  /* Add a dark overlay for better text readability */
-  /* This uses a simple linear-gradient overlay */
-  background-blend-mode: darken;
-  background-color: rgba(46, 157, 247, 0.45); /* Blue overlay */
 }
 
 /* Make the headline bold and modern */
@@ -100,13 +98,7 @@ h2 {
 }
 
 /* Style the impact story image */
-.impact-image {
-  width: 100%;
-  max-width: 320px;
-  border-radius: 10px;
-  margin-bottom: 16px;
-  box-shadow: 0 2px 8px rgba(46, 157, 247, 0.10);
-}
+
 
 /* Donate Button Styles */
 .donate-button {
@@ -182,15 +174,7 @@ section {
 /* This media query applies styles when the screen is wider than 600px (like on tablets and computers) */
 @media (min-width: 601px) {
   /* Show image and text side by side in the impact story */
-  .impact-content {
-    display: flex;           /* Place items in a row */
-    align-items: center;     /* Vertically center items */
-    justify-content: center; /* Center the whole group */
-    gap: 28px;               /* Space between image and text */
-    text-align: left;
-    max-width: 800px;
-    margin: 0 auto;
-  }
+
 
   .impact-image {
     width: 300px;

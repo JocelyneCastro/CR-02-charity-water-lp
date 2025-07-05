@@ -13,6 +13,7 @@
 .right-message h1 {
   color: #fff; /* White letters for the message */
   font-size: 2em;
+  font-family: 'Proxima Nova', Arial, sans-serif; /* Use Proxima Nova font */
   margin: 0;
 }
 /* Simple white rectangle across the top as a border */

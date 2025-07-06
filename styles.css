@@ -10,8 +10,10 @@
   z-index: 3;
 }
 
+
+/* Style navbar links with Charity Water yellow */
 .nav-link {
-  color: #2E9DF7; /* Charity Water blue */
+  color: #FFC907; /* Charity Water yellow */
   font-family: 'Proxima Nova', Arial, sans-serif;
   font-size: 1.1em;
   text-decoration: none;
@@ -21,7 +23,7 @@
 }
 
 .nav-link:hover {
-  color: #159A48; /* Green on hover */
+  color: #000; /* Black on hover for strong contrast */
 }
 /* Thank you message style */
 .thank-you-message {

@@ -15,7 +15,7 @@
   transition: background 0.2s;
 }
 .back-home-btn:hover {
-  background: #ffc907; /* Keep the same yellow on hover */
+  background: #e6b800; /* Slightly darker yellow on hover */
 }
 /* Impact section background and layout */
 .impact-section {
@@ -115,7 +115,7 @@
 }
 
 .nav-link:hover {
-  color: #000; /* Black on hover for strong contrast */
+  color: #e6b800; /* Slightly darker yellow on hover */
 }
 /* Thank you message style */
 .thank-you-message {

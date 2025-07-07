@@ -23,7 +23,7 @@
     </div>
 
     <!-- Message on the right side of the page -->
-    <div class="right-message">
+    <div class="right-message" id="rightMessage">
         <h1>Help bring water to all</h1>
         <p class="right-subtext">
             Every dollar brings clean water<br>
@@ -34,63 +34,165 @@
         <button class="donate-box" id="donateBtn">Donate Now</button>
         <div id="thankYouMsg" class="thank-you-message" style="display:none;">Thank you for donating!</div>
         <canvas id="confetti-canvas" style="position:absolute;pointer-events:none;top:0;left:0;width:100vw;height:100vh;z-index:999;display:none;"></canvas>
-        <script>
-        // Show thank you message and confetti for 3 seconds
-        document.getElementById('donateBtn').onclick = function() {
-          var msg = document.getElementById('thankYouMsg');
-          var confetti = document.getElementById('confetti-canvas');
-          msg.style.display = 'block';
-          confetti.style.display = 'block';
-          startConfetti();
-          setTimeout(function() {
-            msg.style.display = 'none';
-            confetti.style.display = 'none';
-          }, 3000);
-        };
-
-        // Simple confetti animation for beginners
-        // Simple rain animation for beginners
-        function startConfetti() {
-          var canvas = document.getElementById('confetti-canvas');
-          var ctx = canvas.getContext('2d');
-          canvas.width = window.innerWidth;
-          canvas.height = window.innerHeight;
-          var drops = [];
-          // Create 80 raindrops
-          for (var i = 0; i < 80; i++) {
-            drops.push({
-              x: Math.random() * canvas.width,
-              y: Math.random() * -canvas.height,
-              length: 18 + Math.random() * 12, // Length of the raindrop
-              speed: 4 + Math.random() * 4,    // How fast it falls
-              opacity: 0.5 + Math.random() * 0.5
-            });
-          }
-          var frame = 0;
-          function draw() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            // Draw each raindrop
-            for (var i = 0; i < drops.length; i++) {
-              var d = drops[i];
-              ctx.beginPath();
-              ctx.strokeStyle = 'rgba(46,157,247,' + d.opacity + ')'; // Blue color for water
-              ctx.lineWidth = 2;
-              ctx.moveTo(d.x, d.y);
-              ctx.lineTo(d.x, d.y + d.length);
-              ctx.stroke();
-              d.y += d.speed;
-              // If a drop goes below the screen, move it back to the top
-              if (d.y > canvas.height) d.y = -10 - d.length;
-            }
-            frame++;
-            // Let the rain fall for about 3 seconds (180 frames)
-            if (frame < 180) {
-              requestAnimationFrame(draw);
-            }
-          }
-          draw();
-        }
-        </script>
     </div>
+
+    <!-- Impact Section (hidden by default, shows when Impact is pressed) -->
+    <div id="impact-section" class="impact-section" style="display:none;">
+        <h2 class="impact-heading">See How We’re Making an Impact One Post at a Time!</h2>
+        <div class="impact-photos">
+            <img src="https://sdmntprnorthcentralus.oaiusercontent.com/files/00000000-9bc8-622f-b203-010bb31675ed/raw?se=2025-07-07T01%3A14%3A15Z&sp=r&sv=2024-08-04&sr=b&scid=013fe72f-da62-5fda-8f78-8f5bb6227cd2&skoid=30ec2761-8f41-44db-b282-7a0f8809659b&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-07-06T12%3A12%3A34Z&ske=2025-07-07T12%3A12%3A34Z&sks=b&skv=2024-08-04&sig=jdv1JBGcghelqrXzUFZoiAmyajYtGHoCdWM4kwmPDLA%3D" alt="Impact Photo 1" class="impact-img">
+            <img src="https://sdmntprukwest.oaiusercontent.com/files/00000000-8d58-6243-bb83-c76683e394a5/raw?se=2025-07-07T01%3A14%3A16Z&sp=r&sv=2024-08-04&sr=b&scid=2536850d-3237-55e6-8b5c-f4b862187b2b&skoid=30ec2761-8f41-44db-b282-7a0f8809659b&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-07-06T23%3A17%3A44Z&ske=2025-07-07T23%3A17%3A44Z&sks=b&skv=2024-08-04&sig=5K6xE5h063tY6qPLQkJPkc5aUho06YBOJLVMoNA5x2I%3D" alt="Impact Photo 2" class="impact-img">
+            <img src="https://sdmntprpolandcentral.oaiusercontent.com/files/00000000-7a4c-620a-8efc-7d12d8e7362c/raw?se=2025-07-07T01%3A14%3A16Z&sp=r&sv=2024-08-04&sr=b&scid=98c31026-6330-52ac-8383-a24403b40a4c&skoid=30ec2761-8f41-44db-b282-7a0f8809659b&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-07-06T21%3A25%3A07Z&ske=2025-07-07T21%3A25%3A07Z&sks=b&skv=2024-08-04&sig=jJMvMg5OIjQRdHBQaejhZtku5AW/A2LhRXRTAt/%2BNy4%3D" alt="Impact Photo 3" class="impact-img">
+        </div>
+        <!-- Button to go back to the home page -->
+        <button id="backHomeBtn" class="back-home-btn">Back to Home</button>
+    </div>
+    <script>
+    // Show thank you message and confetti for 3 seconds
+    document.getElementById('donateBtn').onclick = function() {
+      var msg = document.getElementById('thankYouMsg');
+      var confetti = document.getElementById('confetti-canvas');
+      msg.style.display = 'block';
+      confetti.style.display = 'block';
+      startConfetti();
+      setTimeout(function() {
+        msg.style.display = 'none';
+        confetti.style.display = 'none';
+      }, 3000);
+    };
+
+    // Simple confetti animation for beginners
+    // Simple rain animation for beginners
+    function startConfetti() {
+      var canvas = document.getElementById('confetti-canvas');
+      var ctx = canvas.getContext('2d');
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      var drops = [];
+      // Create 80 raindrops
+      for (var i = 0; i < 80; i++) {
+        drops.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * -canvas.height,
+          length: 18 + Math.random() * 12, // Length of the raindrop
+          speed: 4 + Math.random() * 4,    // How fast it falls
+          opacity: 0.5 + Math.random() * 0.5
+        });
+      }
+      var frame = 0;
+      function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        // Draw each raindrop
+        for (var i = 0; i < drops.length; i++) {
+          var d = drops[i];
+          ctx.beginPath();
+          ctx.strokeStyle = 'rgba(46,157,247,' + d.opacity + ')'; // Blue color for water
+          ctx.lineWidth = 2;
+          ctx.moveTo(d.x, d.y);
+          ctx.lineTo(d.x, d.y + d.length);
+          ctx.stroke();
+          d.y += d.speed;
+          // If a drop goes below the screen, move it back to the top
+          if (d.y > canvas.height) d.y = -10 - d.length;
+        }
+        frame++;
+        // Let the rain fall for about 3 seconds (180 frames)
+        if (frame < 180) {
+          requestAnimationFrame(draw);
+        }
+      }
+      draw();
+    }
+
+    // Show the impact section when the Impact link is clicked
+    document.addEventListener('DOMContentLoaded', function() {
+      var impactBtn = document.querySelector('a[href="#impact"]');
+      if (impactBtn) {
+        impactBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          document.getElementById('rightMessage').style.display = 'none';
+          document.getElementById('impact-section').style.display = 'block';
+        });
+      }
+      // Back to Home button
+      var backHomeBtn = document.getElementById('backHomeBtn');
+      if (backHomeBtn) {
+        backHomeBtn.addEventListener('click', function() {
+          document.getElementById('impact-section').style.display = 'none';
+          document.getElementById('rightMessage').style.display = 'block';
+        });
+      }
+    });
+    </script>
+
+    <script>
+    // Show thank you message and confetti for 3 seconds
+    document.getElementById('donateBtn').onclick = function() {
+      var msg = document.getElementById('thankYouMsg');
+      var confetti = document.getElementById('confetti-canvas');
+      msg.style.display = 'block';
+      confetti.style.display = 'block';
+      startConfetti();
+      setTimeout(function() {
+        msg.style.display = 'none';
+        confetti.style.display = 'none';
+      }, 3000);
+    };
+
+    // Simple confetti animation for beginners
+    // Simple rain animation for beginners
+    function startConfetti() {
+      var canvas = document.getElementById('confetti-canvas');
+      var ctx = canvas.getContext('2d');
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      var drops = [];
+      // Create 80 raindrops
+      for (var i = 0; i < 80; i++) {
+        drops.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * -canvas.height,
+          length: 18 + Math.random() * 12, // Length of the raindrop
+          speed: 4 + Math.random() * 4,    // How fast it falls
+          opacity: 0.5 + Math.random() * 0.5
+        });
+      }
+      var frame = 0;
+      function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        // Draw each raindrop
+        for (var i = 0; i < drops.length; i++) {
+          var d = drops[i];
+          ctx.beginPath();
+          ctx.strokeStyle = 'rgba(46,157,247,' + d.opacity + ')'; // Blue color for water
+          ctx.lineWidth = 2;
+          ctx.moveTo(d.x, d.y);
+          ctx.lineTo(d.x, d.y + d.length);
+          ctx.stroke();
+          d.y += d.speed;
+          // If a drop goes below the screen, move it back to the top
+          if (d.y > canvas.height) d.y = -10 - d.length;
+        }
+        frame++;
+        // Let the rain fall for about 3 seconds (180 frames)
+        if (frame < 180) {
+          requestAnimationFrame(draw);
+        }
+      }
+      draw();
+    }
+
+    // Show the impact section when the Impact link is clicked
+    document.addEventListener('DOMContentLoaded', function() {
+      var impactBtn = document.querySelector('a[href="#impact"]');
+      if (impactBtn) {
+        impactBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          document.getElementById('rightMessage').style.display = 'none';
+          document.getElementById('impact-section').style.display = 'block';
+        });
+      }
+    });
+    </script>
 </body>
 </html>

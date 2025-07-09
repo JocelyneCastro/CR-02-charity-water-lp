@@ -245,7 +245,7 @@ Fonts:
 /* Set up the main font and background color for the whole page */
 body {
   /* Set the background image for the whole page */
-  background-image: url('https://cdn2.dropmarkusercontent.com/52043/01bafd20d58ff3f18fde0300fa9e7e1d7783bd436c3f6b2d0ff14ad6c957de9c/preview/Ambote-CharityWater-08586.jpg?Expires=1751698946&Signature=gszQsh025TyhDTbcMOOKMU7Imh72RaYm0SNdr4GqrPh7709OV7pDiy0-lo11pwu4e0M4YnUoCj1tDtYZH6oPDWmowsNXa7sgobCcvllPOtvUqEf2x3kj2~qdsu3-uU2~MY9uoIzc9m0tHBuVb3Bg56StkJpdygcx~v~nQrjTc6Fe8hlPXb-gS6LV-o1TXIUR389ZaLNi90dq9-gqX~D8pWLABf9xK8DKVHEw~ZWN4KUcDVMEsoYoZGYgPY0wvWR3XTWtQPIADZo4ASyzSg08CPJR5clZD8GY0sfT4jcb35o3NiMKwed660dfiAqBW682uFNFBM81ZKF3FAad5nXEUg__&Key-Pair-Id=APKAITQYWVEN757ZA4KQ');
+  background-image: url('img/Ambote-CharityWater-08586.jpg');
   background-size: cover; /* Make the image cover the whole page */
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
